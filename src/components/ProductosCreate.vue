@@ -40,6 +40,8 @@
                      v-model="descripcion"></textarea>
        </div>
        <button type="text" @click.prevent="crear" class="btn btn-outline-success">Crear</button>
+         <button @click="salir" class="btn btn-outline-primary">Salir</button>
+
       </form>
       </div>
       </div>
@@ -69,6 +71,14 @@ export default {
             precio: this.precio,
             imagen: this.imagen,
             descripcion: this.descripcion
+            });
+        },
+         salir(){
+            firebase
+            .auth()
+            .signOut()
+            .then(() => {
+                this.$router.replace({ name: 'Home' });
             });
         }
     }

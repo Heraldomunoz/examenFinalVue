@@ -14,7 +14,10 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      requiereLogin: true
+    }
   },
   {
     path: '/about',
@@ -38,10 +41,9 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: Admin,
-    // meta: {
-    //   requiereLogin: true,
-    //   requiereAdmin: true
-    // }
+    meta: {
+      requiereLogin: true,
+    }
   }
 ]
 
