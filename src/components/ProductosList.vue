@@ -1,21 +1,21 @@
 <template>
   <div>
       <h1>Lista de Productos</h1>
-      <button @click="leer">Obtener</button>
+      <button @click="leer" class="btn btn-outline-success">Obtener</button>
       <table>
           <thead>
           <tr>
-              <td>Nombre</td>
-              <td>Precio</td>
+              <td>Nombre producto</td>
+              <td>Precio producto</td>
               <td><img src Imagen/></td>
           </tr>
         <tbody>
             <tr v-for="pro in catalogo" :key="pro.id">
                 <td>{{ pro.nombre }}</td>
-                <td>{{ pro.precio}}</td>
+                <td>{{ pro.precio }}</td>
                 <td> <img :src="pro.imagen"/></td>
                 <td>
-                     <button :id="pro.id">Eliminar</button>
+                     <button @click="eliminar( pro.id )" :id="pro.id" class="btn btn-outline-danger">Eliminar</button>
                 </td>
             </tr>
         </tbody>

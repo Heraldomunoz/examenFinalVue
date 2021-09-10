@@ -3,12 +3,12 @@
          <div class="row">
              <form class="mr-4">
                 <div class="my-3 pr-3">
-                     <label for="nombre">Nombre</label>
+                     <label for="nombre">Producto</label>
                         <input 
                         v-model="nombre"
                         class="form-control text-center" 
                         type="text" 
-                        placeholder="Nombre" 
+                        placeholder="Nombre Producto" 
                         />
                 </div>
 
@@ -18,7 +18,7 @@
                          class="form-control text-center"
                          v-model="precio"
                          type="number" 
-                         placeholder="Precio" 
+                         placeholder="Precio Producto" 
                          />
                 </div>
                 
@@ -28,7 +28,7 @@
                      class="form-control text-center"
                      v-model="imagen"
                      type="text" 
-                     placeholder="Url imagen" 
+                     placeholder="Url imagen producto" 
                      />
                </div>
 
@@ -36,10 +36,10 @@
                      <label for="descripcion">Descripcion</label>
                      <textarea 
                      class="form-control text-center"
-                     placeholder="Descripcion" 
+                     placeholder="Descripcion producto" 
                      v-model="descripcion"></textarea>
        </div>
-       <button type="text" @click.prevent="crear">Crear</button>
+       <button type="text" @click.prevent="crear" class="btn btn-outline-success">Crear</button>
       </form>
       </div>
       </div>

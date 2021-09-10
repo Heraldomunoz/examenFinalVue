@@ -1,9 +1,28 @@
 <template>
   <div>
-      <input v-model="usuario" type ="text" placeholder="Usuario">
-      <input v-model="password" type ="password" placeholder="Password">
-      <button @click="login">Login</button>
-      <button @click="salir">Salir</button>
+       <div class="container my-5">
+            <div class="row">
+                <div class="my-3 pr-3">
+                <label for="usuario">Usuario</label>
+                    <input 
+                    v-model="usuario" 
+                    type ="text" 
+                    placeholder="Usuario"
+                    />
+                </div>
+
+                <div class="my-3 pr-3">
+                   <label for="usuario">Password</label>
+                <input 
+                v-model="password" 
+                type ="password" 
+                placeholder="Password"
+                />
+             </div>
+             </div>
+        </div>
+                <button @click="login" class="btn btn-outline-success">Login</button>
+                <button @click="salir" class="btn btn-outline-primary">Salir</button>
   </div>
 </template>
 

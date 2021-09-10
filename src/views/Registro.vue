@@ -42,7 +42,7 @@
           placeholder="Re Ingresa un Password"
         />
         </div>
-        <button @click.prevent="enviar">enviar</button>
+        <button @click.prevent="enviar" class="btn btn-outline-success">enviar</button>
       </form>
     </div>
   </div>
