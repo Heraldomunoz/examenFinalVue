@@ -1,4 +1,4 @@
-# movie-app
+# examenFinal-app
 
 ## Project setup
 ```
