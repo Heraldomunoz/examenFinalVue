@@ -1,25 +1,23 @@
 <template>
-   <div>
-       <h1>Agregar productos</h1>
-       <ProductosCreate/>
-       <!--
+    <div>
+        <h1>Agregar productos</h1>
+        <ProductosCreate />
+        <!--
            Crear Productos
            Actualizar Productos
            Tablas Visualizar Productos
        -->
-   </div>
+    </div>
 </template>
 
 <script>
-import ProductosCreate from '../components/ProductosCreate.vue'
+import ProductosCreate from "../components/ProductosCreate.vue";
 export default {
-    name: 'Admin',
+    name: "Agregar",
     components: {
         ProductosCreate,
-    }
-}
+    },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

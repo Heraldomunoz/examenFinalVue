@@ -22,7 +22,7 @@
              </div>
         </div>
                 <button @click="login" class="btn btn-outline-success">Login</button>
-                <button @click="salir" class="btn btn-outline-primary">Salir</button>
+                <router-link to="/registro"  class="btn btn-outline-primary">Registrate Aqui</router-link>
   </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
             firebase.auth().signInWithEmailAndPassword(this.usuario, this.password)
             .then(data=> {
                 console.log(data);
-                this.$router.replace({ name: 'About' });
+                this.$router.replace({ name: 'Home' });
             })
             .catch(error=>{
                 console.log(error);

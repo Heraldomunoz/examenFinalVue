@@ -4,7 +4,8 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Login from '../views/Login.vue'
 import Registro from '../views/Registro.vue'
-import Admin from '../views/Admin.vue'
+import Agregar from '../views/Agregar.vue'
+import Carrito from '../views/Carrito.vue'
 import firebase from 'firebase/app'
 import 'firebase/app'
 
@@ -38,9 +39,17 @@ const routes = [
     component: Registro
   },
   {
-    path: '/admin',
-    name: 'admin',
-    component: Admin,
+    path: '/agregar',
+    name: 'agregar',
+    component: Agregar,
+    meta: {
+      requiereLogin: true,
+    }
+  },
+  {
+    path: '/carrito',
+    name: 'carrito',
+    component: Carrito,
     meta: {
       requiereLogin: true,
     }

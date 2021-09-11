@@ -70,19 +70,17 @@ export default {
                 .then((userCredential) => {
     //Cierre de sesión
                   firebase
-                  .auth()
-                  .signOut()
-                  .then( ( ) => {
-                    this.$router.replace( { name: "Home" });
+                  .auth().signOut().then( ( ) => {
+                    this.$router.replace( { name: "Login" });
                   });
     // Signed in
-             var usuario = userCredential.user;
-             console.log(usuario)
-             var email = userCredential.email;
-             console.log(email)
-             this.usuario=null
-             this.email=null
-             this.password=null
+              var usuario = userCredential.user;
+              console.log(usuario)
+              var email = userCredential.email;
+              console.log(email)
+              this.usuario=null
+              this.email=null
+              this.password=null
             })
              .catch((error) => {
                  console.log(error)
