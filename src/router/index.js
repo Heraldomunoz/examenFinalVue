@@ -6,6 +6,7 @@ import Login from '../views/Login.vue'
 import Registro from '../views/Registro.vue'
 import Agregar from '../views/Agregar.vue'
 import Carrito from '../views/Carrito.vue'
+import HomeCli from '../views/HomeCli.vue'
 import firebase from 'firebase/app'
 import 'firebase/app'
 
@@ -19,6 +20,12 @@ const routes = [
     meta: {
       requiereLogin: true
     }
+  },
+  {
+    path: '/homecli',
+    name: 'HomeCli',
+    component: HomeCli,
+    
   },
   {
     path: '/about',

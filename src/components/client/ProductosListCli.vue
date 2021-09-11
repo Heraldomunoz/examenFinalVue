@@ -2,7 +2,7 @@
     <div class="container">
         <h1>Lista de Productos</h1>
         
-        <Card :catalogo="catalogo" :eliminar="eliminar" />
+        <Card :catalogo="catalogo" />
     </div>
 </template>
 
@@ -39,19 +39,19 @@ export default {
             });
             });
         },
-    eliminar(idFirebase) {
-        var database = firebase.firestore();
-        database
-            .collection("productos")
-            .doc(idFirebase)
-            .delete()
-            .then((data) => {
-            console.log(data);
-            })
-            .catch((error) => {
-            console.log(error);
-            });
-        },
+    // eliminar(idFirebase) {
+    //     var database = firebase.firestore();
+    //     database
+    //         .collection("productos")
+    //         .doc(idFirebase)
+    //         .delete()
+    //         .then((data) => {
+    //         console.log(data);
+    //         })
+    //         .catch((error) => {
+    //         console.log(error);
+    //         });
+    //     },
     },
     beforeMount(){
         this.leer();

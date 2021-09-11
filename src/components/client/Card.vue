@@ -13,7 +13,7 @@
                 <p class="card-text">
                     {{cont.descripcion}}
                 </p>
-                <button  type="button" href="#" :id="cont.id" @click="addCarrito({id:cont.id, data:catalogo})" class="btn btn-primary col-12">Agregar</button> <button class="btn btn-danger" @click="eliminar(cont.id)" >eliminar</button>
+                <button  type="button" href="#" :id="cont.id" @click="addCarrito({id:cont.id, data:catalogo})" class="btn btn-primary col-12">Agregar</button>
                 
             </div>
             
@@ -26,7 +26,7 @@ import {mapMutations,mapState }from 'vuex'
 
 export default {
     name: "card",
-    props: ["catalogo","eliminar"],
+    props: ["catalogo"],
     computed:{
         ...mapState(['carrito'])
     },

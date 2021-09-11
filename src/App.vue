@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div v-if="state == true">
+        
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container">
                     <a class="navbar-brand" href="#">CompraTodo</a>
@@ -15,64 +15,103 @@
                     >
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div
-                        class="collapse navbar-collapse"
-                        id="navbarSupportedContent"
-                    >
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <router-link
-                                    class="nav-link active"
-                                    aria-current="page"
-                                    to="/"
-                                    >Home</router-link
+                    
+                        <div v-if="state == true">
+                             <div
+                                    class="collapse navbar-collapse"
+                                    id="navbarSupportedContent"
                                 >
-                            </li>
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="/agregar"
-                                    >Agregar Producto</router-link
-                                >
-                            </li>
-                        </ul>
-                        <div class="d-flex nav-item">
-                            <router-link
-                                :to="{ name: 'carrito' }"
-                                type="button"
-                                class="btn btn-primary position-relative "
-                            >
-                                <i class="bi bi-basket"></i>
-                                <span
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                                >
-                                    {{ carrito.length }}
-                                    <span class="visually-hidden"
-                                        >unread messages</span
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <router-link
+                                        class="nav-link active"
+                                        aria-current="page"
+                                        to="/"
+                                        >Catalogo</router-link
                                     >
-                                </span>
-                            </router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link class="nav-link" to="/agregar"
+                                        >Agregar Producto</router-link
+                                    >
+                                </li>
+                            </ul>
+                            <div class="d-flex nav-item">
+                                <router-link
+                                    :to="{ name: 'carrito' }"
+                                    type="button"
+                                    class="btn btn-primary position-relative "
+                                >
+                                    <i class="bi bi-basket"></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                    >
+                                        {{ carrito.length }}
+                                        <span class="visually-hidden"
+                                            >unread messages</span
+                                        >
+                                    </span>
+                                </router-link>
 
-                            <button
-                                @click="logout"
-                                type="button"
-                                class="btn btn-success"
-                            >
-                                Cerrar Sesion
-                            </button>
-
+                                <button
+                                    @click="logout"
+                                    type="button"
+                                    class="btn btn-success"
+                                >
+                                    Cerrar Sesion
+                                </button>
+                            </div>
                             <!-- <router-link class="nav-link" to="/registro"
                                 >Registro</router-link
                             > -->
+                             </div>
+                        </div>
+
+
+                        <div v-else>
+                             <div
+                        class="collapse navbar-collapse"
+                        id="navbarSupportedContent"
+                    >
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <router-link
+                                        class="nav-link active"
+                                        aria-current="page"
+                                        to="/HomeCli"
+                                        >Catalogo</router-link
+                                    >
+                                </li>
+                            </ul>
+                            <div class="d-flex nav-item">
+                                <router-link
+                                    :to="{ name: 'carrito' }"
+                                    type="button"
+                                    class="btn btn-primary position-relative "
+                                >
+                                    <i class="bi bi-basket"></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                    >
+                                        {{ carrito.length }}
+                                        <span class="visually-hidden"
+                                            >unread messages</span
+                                        >
+                                    </span>
+                                </router-link>
+
+                                <router-link
+                                    to="/login"
+                                    class="btn btn-success"
+                                >
+                                    Login
+                                </router-link>
+                            </div>
+                        </div>
                         </div>
                     </div>
-                </div>
+                
             </nav>
-        </div>
-        <div v-else>
-            <router-link to="/login">Login</router-link>
-        </div>
-        <div id="nav">
-            <!-- <router-link to="/registro">Registro</router-link>  -->
-        </div>
         <router-view />
     </div>
 </template>
@@ -114,7 +153,7 @@ export default {
                 });
         },
     },
-     computed: {
+    computed: {
         ...mapState(["carrito"]),
     },
     beforeMount() {
