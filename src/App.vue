@@ -129,14 +129,14 @@ export default {
     },
     methods: {
         datos() {
-            console.log(
+            
                 firebase.auth().onAuthStateChanged((user) => {
                     if (user.email == null) {
                         return console.log(this.state);
                     }
                     this.state = true;
                 })
-            );
+            
         },
         logout() {
             firebase

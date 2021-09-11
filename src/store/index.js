@@ -15,7 +15,7 @@ export default new Vuex.Store({
   mutations: {
     addCarrito(state, datos) {      
 
-      console.log(state,datos)
+      
       let { id, data } = datos;      
       let compra = data.filter(item => item.id == id)
 
@@ -29,12 +29,13 @@ export default new Vuex.Store({
       
     },
     deleteCarrito(state, idProducto){
-      console.log(state.carrito, idProducto)
+    
 
       let dataEliminar = state.carrito.filter(item => idProducto != item.id)
-      console.log(dataEliminar)
+  
       state.carrito = dataEliminar
-    }
+    },
+    
   },
   actions: {
   },

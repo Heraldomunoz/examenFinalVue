@@ -73,7 +73,7 @@ router.beforeEach((to, from, next)=>{
   const requiereLogin = to.matched.some(ruta=> ruta.meta.requiereLogin);
   const logueado = firebase.auth().currentUser;
   if(requiereLogin && !logueado) {
-    next('/login');
+    next('/homecli');
   }
   else{
     next();

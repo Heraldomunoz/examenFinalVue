@@ -22,13 +22,12 @@ export default {
     methods: {
         leer() {
         var database = firebase.firestore();
-        console.log(database.collection("productos").get());
         database
             .collection("productos")
             .get()
             .then((query) => {
             query.forEach((doc) => {
-                console.log(doc.data().nombre);
+                
                 this.catalogo.push({
                 id: doc.id,
                 nombre: doc.data().nombre,
@@ -46,7 +45,7 @@ export default {
             .doc(idFirebase)
             .delete()
             .then((data) => {
-            console.log(data);
+            
             })
             .catch((error) => {
             console.log(error);
@@ -55,7 +54,7 @@ export default {
     },
     beforeMount(){
         this.leer();
-        console.log(this.catalogo)
+        
     }
 };
 

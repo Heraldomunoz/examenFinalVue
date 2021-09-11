@@ -75,6 +75,8 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import firebase from "firebase/app";
+import "firebase/firestore";
 export default {
     name: "carritoCompra",
     computed: {
@@ -83,12 +85,21 @@ export default {
     methods: {
         ...mapMutations(["deleteCarrito"]),
         eliminar(e) {
-            //    console.log(e.target.id)
             this.deleteCarrito(e.target.id);
         },
         gracias(){
-            alert('Gracias por tu Compra')
+            
+            var database = firebase.firestore();
+                database.collection("carrito").add({
+                    venta: this.carrito,
+                
+            });
+            this.carrito.splice(0)
+            this.$router.replace({ name: 'Home' });
+                alert('Gracias por tu Compra')
+       
         }
-    },
+    }
 };
+
 </script>
