@@ -31,6 +31,15 @@
                         placeholder="Url imagen producto"
                     />
                 </div>
+                 <div class="my-3 pr-3">
+                    <label for="Url">cantidad disponible</label>
+                    <input
+                        class="form-control text-center"
+                        v-model="cantidad"
+                        type="number"
+                        placeholder="Url cantidad producto"
+                    />
+                </div>
 
                 <div class="my-3 pr-3">
                     <label for="descripcion">Descripcion</label>
@@ -66,20 +75,26 @@ export default {
             precio: null,
             imagen: null,
             descripcion: null,
+            cantidad:null
         };
     },
     methods: {
         crear() {
             var database = firebase.firestore();
-            console.log(database);
-            console.log(database.collection("productos"));
-            //  firebase.database().ref('productos/').set({
             database.collection("productos").add({
                 nombre: this.nombre,
                 precio: this.precio,
                 imagen: this.imagen,
                 descripcion: this.descripcion,
+                cantidad: this.cantidad
             });
+
+            this.nombre= ""
+            this.precio=""
+            this.imagen=""
+            this.descripcion=""
+            this.cantidad=""
+            // this.$router.replace({ name: 'Home' });
         },
         salir() {
             firebase

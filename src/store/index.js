@@ -7,8 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     carrito: [],
-    nombre: ''
-
+    nombre: '',
+    cantidadAgregado:null
   },
   getters: {
   },
@@ -20,11 +20,14 @@ export default new Vuex.Store({
       let compra = data.filter(item => item.id == id)
 
       if(state.carrito.find(item => item.id == compra[0].id)== undefined){
+        compra[0].cantProducto = 1
         state.carrito.push(compra[0])
+        
         
       }else{
         let modCarrito =state.carrito.find(item => item.id == compra[0].id)
-        modCarrito.cantidad ++
+        modCarrito.cantProducto ++
+        console.log(modCarrito)
       }
       
     },

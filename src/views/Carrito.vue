@@ -30,7 +30,7 @@
                                     <p class="card-text">
                                         <small class="text-muted"
                                             >Cantidad:
-                                            {{ item.cantidad }}</small
+                                            {{ item.cantProducto }}</small
                                         >
                                     </p>
                                     <div
@@ -83,22 +83,28 @@ export default {
         ...mapState(["carrito"]),
     },
     methods: {
-        ...mapMutations(["deleteCarrito"]),
+        ...mapMutations(["deleteCarrito","vaciarCarrito"]),
         eliminar(e) {
             this.deleteCarrito(e.target.id);
         },
         gracias(){
             
             var database = firebase.firestore();
+            console.log(database);
+            console.log(database.collection("carrito"));
+            console.log(this.carrito)
+            //  firebase.database().ref('carrito/').set({
                 database.collection("carrito").add({
-                    venta: this.carrito,
+                  carrito: this.carrito,
                 
             });
             this.carrito.splice(0)
             this.$router.replace({ name: 'Home' });
                 alert('Gracias por tu Compra')
-       
         }
+    },
+    beforeMount(){
+        console.log(this.carrito)
     }
 };
 
