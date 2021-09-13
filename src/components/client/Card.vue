@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="row d-flex justify-content-between">
         <!-- <h1>{{cont.nombreProducto+" "+ cont.modelo}}</h1> -->
         <div
             class="card"
