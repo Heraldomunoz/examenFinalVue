@@ -58,7 +58,7 @@
                         <div class="card-body" >
                             <h5 class="card-title">Tus productos son:</h5>
                             <ul class="list-group list-group-flush mb-3" >
-                                <li class="list-group-item" v-for="item in carrito" :key="item.id">{{item.nombreProducto}} {{item.modelo}}</li>
+                                <li class="list-group-item" v-for="item in carrito" :key="item.id">{{item.nombre}}</li>
                                 
                             </ul>
                             <p class="text-center">Cantidad de productos: {{carrito.length}} </p>
@@ -95,11 +95,11 @@ export default {
             console.log(this.carrito)
             //  firebase.database().ref('carrito/').set({
                 database.collection("carrito").add({
-                  carrito: this.carrito,
+                    carrito: this.carrito,
                 
             });
             this.carrito.splice(0)
-            this.$router.replace({ name: 'Home' });
+            this.$router.replace({ name: 'About' });
                 alert('Gracias por tu Compra')
         }
     },

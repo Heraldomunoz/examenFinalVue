@@ -16,18 +16,23 @@
                 <div class="card-footer text-muted">
                     Cantidad disponible: {{ cont.cantidad }}
                 </div>
-                <button
-                    type="button"
-                    href="#"
-                    :id="cont.id"
-                    @click="addCarrito({ id: cont.id, data: catalogo })"
-                    class="btn btn-primary col-12"
-                >
-                    Agregar
-                </button>
-                <button class="btn btn-danger" @click="eliminar(cont.id)">
-                    eliminar
-                </button>
+                <div class="d-flex justify-content-end flex-column ">
+                    <button
+                        type="button"
+                        href="#"
+                        :id="cont.id"
+                        @click="addCarrito({ id: cont.id, data: catalogo })"
+                        class="btn btn-primary col-12 mb-2"
+                    >
+                        Agregar
+                    </button>
+                    <button
+                        class="btn btn-danger col-12"
+                        @click="eliminar(cont.id)"
+                    >
+                        eliminar
+                    </button>
+                </div>
             </div>
         </div>
     </div>

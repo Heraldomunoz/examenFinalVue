@@ -2,7 +2,10 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">CompraTodo</a>
+                <router-link class="navbar-brand" aria-current="page" to="/"
+                    >CompraTodo</router-link
+                >
+
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -104,7 +107,7 @@
                 </div>
             </div>
         </nav>
-        <p>UF de hoy: {{this.ufHoy}}</p>
+        <p>UF de hoy: {{ this.ufHoy }}</p>
         <router-view />
     </div>
 </template>
@@ -118,7 +121,7 @@ export default {
     data() {
         return {
             state: null,
-            ufHoy:null
+            ufHoy: null,
         };
     },
     methods: {
@@ -144,13 +147,15 @@ export default {
                     // An error happened.
                 });
         },
-       async getUf() {
+        async getUf() {
             const key = "fa4feffb430eaede3e9ea53c41945cb053ae5301";
 
-            let datos = await fetch(`https://api.sbif.cl/api-sbifv3/recursos_api/uf?apikey=${key}&formato=json`)
-            let uf = await datos.json()
-            console.log(uf.UFs[0].Valor)
-            this.ufHoy= uf.UFs[0].Valor
+            let datos = await fetch(
+                `https://api.sbif.cl/api-sbifv3/recursos_api/uf?apikey=${key}&formato=json`
+            );
+            let uf = await datos.json();
+            console.log(uf.UFs[0].Valor);
+            this.ufHoy = uf.UFs[0].Valor;
         },
     },
     computed: {

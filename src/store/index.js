@@ -9,15 +9,12 @@ export default new Vuex.Store({
     carrito: [],
     nombre: '',
     cantidadAgregado: null,
-    
   },
   getters: {
-   
+    
   },
   mutations: {
     addCarrito(state, datos) {
-
-
       let { id, data } = datos;
       let compra = data.filter(item => item.id == id)
 
@@ -42,8 +39,7 @@ export default new Vuex.Store({
     },
 
   },
-  actions: {
-   
+  actions: {   
   },
   modules: {
   }

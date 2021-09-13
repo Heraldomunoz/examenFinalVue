@@ -3,10 +3,10 @@
 // eslint-disable-next-line no-undef
 describe('General', function() {
     it('testEtoE', function() {
-        cy.visit('http://localhost:8080/');
+        cy.visit('http://localhost:8081/');
         cy.get('h1').contains('Lista de Productos')
         cy.get('a.nav-link.active').type('catalogo')
-        cy.visit('http://localhost:8080/login');
+        cy.visit('http://localhost:8081/login');
         cy.get('input[name=usuario]').type('felipe@yopmail.com')   
         cy.get('input[name=password]').type('123456')
         cy.get('.login').click()
