@@ -38,6 +38,7 @@ export default {
                         });
                     });
                 });
+                
         },
         eliminar(idFirebase) {
             var database = firebase.firestore();
@@ -46,11 +47,13 @@ export default {
                 .doc(idFirebase)
                 .delete()
                 .then((data) => {
+                    
                     data;
                 })
                 .catch((error) => {
                     console.log(error);
                 });
+            this.catalogo.splice(0)
             this.leer();
         },
     },

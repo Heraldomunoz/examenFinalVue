@@ -63,7 +63,7 @@
                             </ul>
                             <p class="text-center">Cantidad de productos: {{carrito.length}} </p>
                             <div class="col-12 d-flex justify-content-end">
-                            <a href="#" class="btn btn-primary" @click="gracias">Finalizar compra</a>
+                            <a href="#" class="btn btn-primary" id="finalizar" @click="gracias">Finalizar compra</a>
                             </div>
                         </div>
                     </div>

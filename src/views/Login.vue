@@ -5,6 +5,7 @@
                 <div class="my-3 pr-3">
                 <label for="usuario">Usuario</label>
                     <input 
+                    name="usuario"
                     v-model="usuario" 
                     type ="text" 
                     placeholder="Usuario"
@@ -14,6 +15,7 @@
                 <div class="my-3 pr-3">
                    <label for="usuario">Password</label>
                 <input 
+                name="password"
                 v-model="password" 
                 type ="password" 
                 placeholder="Password"
@@ -21,7 +23,7 @@
              </div>
              </div>
         </div>
-                <button @click="login" class="btn btn-outline-success">Login</button>
+                <button @click="login" class="btn btn-outline-success login">Login</button>
                 <router-link to="/registro"  class="btn btn-outline-primary">Registrate Aqui</router-link>
   </div>
 </template>

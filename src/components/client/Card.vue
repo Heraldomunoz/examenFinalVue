@@ -13,7 +13,7 @@
                 <p class="card-text">
                     {{cont.descripcion}}
                 </p>
-                <button  type="button" href="#" :id="cont.id" @click="addCarrito({id:cont.id, data:catalogo})" class="btn btn-primary col-12">Agregar</button>
+                <button  type="button" :id="cont.id" @click="addCarrito({id:cont.id, data:catalogo})" class="btn btn-primary col-12">Agregar</button>
                 
             </div>
             

@@ -11,32 +11,39 @@
             <div class="card-body">
                 <h5 class="card-title">{{ cont.nombre }}</h5>
                 <p class="card-text">
-                    {{cont.descripcion}}
+                    {{ cont.descripcion }}
                 </p>
                 <div class="card-footer text-muted">
-                    Cantidad disponible: {{cont.cantidad}}
+                    Cantidad disponible: {{ cont.cantidad }}
                 </div>
-                <button  type="button" href="#" :id="cont.id" @click="addCarrito({id:cont.id, data:catalogo})" class="btn btn-primary col-12">Agregar</button> <button class="btn btn-danger" @click="eliminar(cont.id)" >eliminar</button>
-                
+                <button
+                    type="button"
+                    href="#"
+                    :id="cont.id"
+                    @click="addCarrito({ id: cont.id, data: catalogo })"
+                    class="btn btn-primary col-12"
+                >
+                    Agregar
+                </button>
+                <button class="btn btn-danger" @click="eliminar(cont.id)">
+                    eliminar
+                </button>
             </div>
-            
         </div>
     </div>
 </template>
 
 <script>
-import {mapMutations,mapState }from 'vuex'
+import { mapMutations, mapState } from "vuex";
 
 export default {
     name: "card",
-    props: ["catalogo","eliminar"],
-    computed:{
-        ...mapState(['carrito'])
+    props: ["catalogo", "eliminar"],
+    computed: {
+        ...mapState(["carrito"]),
     },
-    methods:{
-        
-        ...mapMutations(['addCarrito'])
-        
-    }
+    methods: {
+        ...mapMutations(["addCarrito"]),
+    },
 };
 </script>

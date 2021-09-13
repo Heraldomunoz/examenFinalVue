@@ -39,7 +39,8 @@
                             <router-link
                                 :to="{ name: 'carrito' }"
                                 type="button"
-                                class="btn btn-primary position-relative "
+                                class="btn btn-primary position-relative"
+                                id="irCarrito"
                             >
                                 <i class="bi bi-basket"></i>
                                 <span
@@ -82,7 +83,7 @@
                             <router-link
                                 :to="{ name: 'carrito' }"
                                 type="button"
-                                class="btn btn-primary position-relative "
+                                class="btn btn-primary position-relative"
                             >
                                 <i class="bi bi-basket"></i>
                                 <span
@@ -103,6 +104,7 @@
                 </div>
             </div>
         </nav>
+        <p>UF de hoy: {{this.ufHoy}}</p>
         <router-view />
     </div>
 </template>
@@ -116,12 +118,13 @@ export default {
     data() {
         return {
             state: null,
+            ufHoy:null
         };
     },
     methods: {
         datos() {
             firebase.auth().onAuthStateChanged((user) => {
-                if (user.email == null) {
+                if (user == null) {
                     return console.log(this.state);
                 }
                 this.state = true;
@@ -141,12 +144,21 @@ export default {
                     // An error happened.
                 });
         },
+       async getUf() {
+            const key = "fa4feffb430eaede3e9ea53c41945cb053ae5301";
+
+            let datos = await fetch(`https://api.sbif.cl/api-sbifv3/recursos_api/uf?apikey=${key}&formato=json`)
+            let uf = await datos.json()
+            console.log(uf.UFs[0].Valor)
+            this.ufHoy= uf.UFs[0].Valor
+        },
     },
     computed: {
         ...mapState(["carrito"]),
     },
     beforeMount() {
         this.datos();
+        this.getUf();
     },
 };
 </script>
